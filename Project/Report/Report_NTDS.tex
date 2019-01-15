@@ -1,0 +1,82 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Hello I'm a title\\
+{\footnotesize Network Tour of Data Science Report, January 2019}
+}
+
+\author{Isabela Constantin, Ad\'elie Garin, Celia Hacker, Michael Spieler}
+
+\maketitle
+
+\section{Introduction}
+Using the wikipedia data that is now open source, we would like to understand how the number of views on some pages is dependent on the type of event concerned. We will consider two types of events :
+\begin{enumerate}
+\item Expected events, e.g. elections, concerts, political events,...
+\item Unexpected events e.g. death of someone famous, coup d’état, natural disaster…
+\end{enumerate} 
+
+
+%brexit, 
+%https://en.wikipedia.org/wiki/Stan_Lee, https://en.wikipedia.org/wiki/Fukushima_Daiichi_nuclear_disaster, https://en.wikipedia.org/wiki/Chinese_Lunar_Exploration_Program
+
+Choosing several specific events of each type, we will consider the graph built with pages concerned as nodes and a two pages are linked if there is a web link from one to the other. We will use both the directed graph, in which one page which is linked to the other leads to only one direction for the concerning edge, and the undirected graph, for which there exists an edge if and only if there is one page linked to the other (we do not ask for the reciprocal page to be also linked to the other). 
+\medskip
+Our question is: Does the number of views on the pages propagates in the pages in different ways depending on the type of events? If yes, how do they behave?
+\medskip
+We will consider the difference between the number of views of the day before the event and the day of the event. 
+\medskip
+To analyse our data and try to answer our questions, we will first start by acquire the data, by building several graphs for each type of events, then explore them and try to get general properties of the graphs, building a general pipeline for our analysis. We then exploit the data, trying to test our hypothesis and finally draw conclusions. 
+
+\section{Data Acquisition}
+
+We constructed the graphs by selecting the wikipedia article concerning each event. We then grew the graphs around them by selecting the pages the event was linking to, and the pages linked from those. To reduce the amount of data we had, we randomly subsampled by giving a higher probability to stay in the graph to the nodes that are higher in the page, meaning they are stated early, so they are more likely to be important links. The resulting graphs are directed, unweighted and connected. In addition, we found the number of views per page, that we computed for blablabla. 
+
+
+
+\section{Data Exploration}
+
+We start by analysing some basic properties of each graphs. The results are stated in the  following table. 
+
+\begin{table}[htbp]
+\caption{Basic properties of the graphs}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Graphs}&\multicolumn{4}{|c|}{\textbf{Properties}} \\
+\cline{2-5} 
+\textbf{ } & \textbf{\textit{Number of nodes}}& \textbf{\textit{Number of edges}}& \textbf{\textit{Diameter}} & \textbf{\textit{Average Clustering Coefficient}}\\
+\hline
+copy& More table copy$^{\mathrm{a}}$& &  \\
+\hline
+\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+
+
+
+\section{Conclusion}
+
+\section*{References}
+
+
+\cite{laplacian}  
+\cite{signalprocessing}
+\cite{clustering}
+
+\bibliography{biblio}
+\bibliographystyle{plain}
+
+\end{document}
