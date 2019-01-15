@@ -1,8 +1,7 @@
-\documentclass{article}
-%\documentclass[conference]{IEEEtran}
-%\IEEEoverridecommandlockouts
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
-%\usepackage{cite}
+\usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
@@ -44,14 +43,40 @@ To analyse our data and try to answer our questions, we will first start by acqu
 
 \section{Data Acquisition}
 
-We constructed the graphs by selecting the Wikipedia article corresponding to each event. We then grew the graphs around them by selecting the pages the event is linking to, and the pages linked from those. To reduce the amount of data we had, we randomly subsampled by giving a higher probability of staying in the graph to the nodes that are higher in the page, meaning they are stated early so they are more likely to be important links. The resulting graphs are directed, unweighted and connected. In addition, we found the number of views per page, that we computed for $\bf{ blablabla}$. 
-The number of views per page give us signals on the nodes which we transform into the quotient \[\frac{\text{number of views the day after} }{\text{number of views the day before}}\] on each node. 
-
-
+We constructed the graphs by selecting the Wikipedia article corresponding to each event. We then grew the graphs around them by selecting the pages the event is linking to, and the pages linked from those. To reduce the amount of data we had, we randomly subsampled by giving a higher probability of staying in the graph to the nodes that are higher in the page, meaning they are stated early so they are more likely to be important links. The resulting graphs are directed, unweighted and connected. In addition, we found the number of views per page, that we computed for the day before the event and the day of the event. 
+For each page will consider the quotient \[\frac{\text{number of views the day of the event} }{\text{number of views the day before}}.\]  Taking this quotient is a sort of normalization of the number of views. The higher this value is, the more the number of views on the day of the event is big compared to the number of views of the day before. We hence have a value assigned to each node of our graphs. 
 
 
 \section{Data Exploration}
 
+
+The six graphs we built are the following: 
+
+\begin{table}[htbp]
+\caption{Our graphs}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{ } & \textbf{\textit{Event}}& \textbf{\textit{type of event}}& \textbf{\textit{Wikipedia article}} \\
+\hline
+Graph 1 & Expected & & \\
+\hline
+Graph 2& Expected & & \\
+\hline
+Graph 3&  Expected& & \\
+\hline
+Graph 4& Unexpected& & \\
+\hline
+Graph 5& Unexpected& & \\
+\hline
+Graph 6 & Unexpected & & \\
+\hline
+\multicolumn{4}{l}{ACC stands for Average Clustering Coefficient.} \\
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Basic properties}
 We start by analysing some basic properties of each graph, such as the number of nodes, the number of edges, the diameter of the graph, the average clustering coefficient with the tools available in Networkx. The results are stated in the  following table. 
 
 \begin{table}[htbp]
@@ -61,27 +86,28 @@ We start by analysing some basic properties of each graph, such as the number of
 \hline
 \textbf{Graphs}&\multicolumn{4}{|c|}{\textbf{Properties}} \\
 \cline{2-5} 
-\textbf{ } & \textbf{\textit{Number of nodes}}& \textbf{\textit{Number of edges}}& \textbf{\textit{Diameter}} & \textbf{\textit{Average Clustering Coefficient}}\\
+\textbf{ } & \textbf{\textit{Number of nodes}}& \textbf{\textit{Number of edges}}& \textbf{\textit{Diameter}} & \textbf{\textit{ACC}}\\
 \hline
-Graph 1 & More table copy$^{\mathrm{a}}$& & & \\
+Graph 1 & & & & \\
 \hline
-Graph 2& More table copy$^{\mathrm{a}}$& & & \\
+Graph 2& & & & \\
 \hline
-Graph 3& More table copy$^{\mathrm{a}}$& & & \\
+Graph 3& & & & \\
 \hline
-Graph 4& More table copy$^{\mathrm{a}}$& & & \\
+Graph 4& & & & \\
 \hline
-Graph 5& More table copy$^{\mathrm{a}}$& & & \\
+Graph 5& & & & \\
 \hline
-Graph 6 & More table copy$^{\mathrm{a}}$& & & \\
+Graph 6 & & & & \\
 \hline
-\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.} \\
+\multicolumn{4}{l}{ACC stands for Average Clustering Coefficient.} \\
 \end{tabular}
-\label{tab1}
 \end{center}
 \end{table}
 
 Some other properties we would like to  study are the the degree distributions, the strongly connected components of the graphs and do spectral clustering on the undirected versions of our graphs. 
+%subsection for each of those
+
 \section{Data Exploitation}
 
 We now come to the most important part of our analysis, which is the following: we consider the number of views as a signal on the graph. We would like to see how it behaves. In order to make a sensible comparision of number of views and how these number of views evolve for each graph we use the quotient of the number of views before and at the day of the event. 
