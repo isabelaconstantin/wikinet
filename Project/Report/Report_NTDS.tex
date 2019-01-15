@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{hyperref}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -50,7 +51,9 @@ For each page will consider the quotient \[\frac{\text{number of views the day o
 \section{Data Exploration}
 
 
-The six graphs we built are the following: 
+The six graphs we build are based on the following six events: 
+
+% Other possible Expected events: US elections, release date of a movie maybe, 
 
 \begin{table}[htbp]
 \caption{Our graphs}
@@ -59,25 +62,24 @@ The six graphs we built are the following:
 \hline
 \textbf{ } & \textbf{\textit{Event}}& \textbf{\textit{type of event}}& \textbf{\textit{Wikipedia article}} \\
 \hline
-Graph 1 & Expected & & \\
+Graph 1 & Brexit  &Expected & \href{https://en.wikipedia.org/wiki/Brexit}{Brexit}\\
 \hline
-Graph 2& Expected & & \\
+Graph 2&   &Expected & \\
 \hline
-Graph 3&  Expected& & \\
+Graph 3&  & Expected& \\
 \hline
-Graph 4& Unexpected& & \\
+Graph 4 & Death of Stan Lee & Unexpected & \href{ https://en.wikipedia.org/wiki/Stan_Lee }{Stan Lee} \\
 \hline
-Graph 5& Unexpected& & \\
+Graph 5& Fukushima nuclear disaster& Unexpected & \href{https://en.wikipedia.org/wiki/Fukushima_Daiichi_nuclear_disaster }{Fukushima}\\
 \hline
-Graph 6 & Unexpected & & \\
+Graph 6 & Chinese Lunar Exploration  Program & Unexpected &  \href{https://en.wikipedia.org/wiki/Chinese_Lunar_Exploration_Program }{CLEP}\\
 \hline
-\multicolumn{4}{l}{ACC stands for Average Clustering Coefficient.} \\
 \end{tabular}
 \end{center}
 \end{table}
 
 \subsection{Basic properties}
-We start by analysing some basic properties of each graph, such as the number of nodes, the number of edges, the diameter of the graph, the average clustering coefficient with the tools available in Networkx. The results are stated in the  following table. 
+We start by analysing some basic properties of each graph, such as the number of nodes, the number of edges, the diameter of the graph, and the average clustering coefficient, with the tools available in Networkx. The results are stated in the  following table. 
 
 \begin{table}[htbp]
 \caption{Basic properties of the graphs}
@@ -107,15 +109,28 @@ Graph 6 & & & & \\
 
 Some other properties we would like to  study are the the degree distributions, the strongly connected components of the graphs and do spectral clustering on the undirected versions of our graphs. 
 %subsection for each of those
+\subsection{Degree Distribution}
+We now plot the degree distribution of each graph: 
+%Plots of the degree distributions
+\subsection{Strongly Connected Components}
+Our graphs are clearly connected in the undirected sense by the way we have constructed them. In this part we compute the number of strongly connected components. A directed graph is said to be strongly connected if there is a directed path connecting any two of its vertices. 
+
+\subsection{Spectral Clustering }
+% Spectral clustering will allow us to see if there are hubs in our graphs. We can use to compare how the signal propagates 
+
 
 \section{Data Exploitation}
 
 We now come to the most important part of our analysis, which is the following: we consider the number of views as a signal on the graph. We would like to see how it behaves. In order to make a sensible comparision of number of views and how these number of views evolve for each graph we use the quotient of the number of views before and at the day of the event. 
 The general pipeline of our analysis is :  
+%Describe pipeline
+
 \begin{enumerate}
 \item 
 \item 
 \end{enumerate}
+
+%to do: distribution of labels per node and compare to random signal, dirac signal and find one that slowly increases/dicreases 
 
 \section{Conclusion}
 
