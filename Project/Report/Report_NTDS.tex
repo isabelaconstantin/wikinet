@@ -1,7 +1,8 @@
-\documentclass[conference]{IEEEtran}
-\IEEEoverridecommandlockouts
+\documentclass{article}
+%\documentclass[conference]{IEEEtran}
+%\IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
-\usepackage{cite}
+%\usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
@@ -20,33 +21,38 @@
 \maketitle
 
 \section{Introduction}
-Using the wikipedia data that is now open source, we would like to understand how the number of views on some pages is dependent on the type of event concerned. We will consider two types of events :
+Using the Wikipedia data that is now open source, we would like to understand how the number of views on some pages depend on a type of event. We will consider the two following types of events for our analysis:
 \begin{enumerate}
-\item Expected events, e.g. elections, concerts, political events,...
-\item Unexpected events e.g. death of someone famous, coup d’état, natural disaster…
+\item Expected events such as elections, concerts, political events
+\item Unexpected events which could be for example, death of someone famous,a coup d’état, or a natural disaster
 \end{enumerate} 
 
 
 %brexit, 
 %https://en.wikipedia.org/wiki/Stan_Lee, https://en.wikipedia.org/wiki/Fukushima_Daiichi_nuclear_disaster, https://en.wikipedia.org/wiki/Chinese_Lunar_Exploration_Program
 
-Choosing several specific events of each type, we will consider the graph built with pages concerned as nodes and a two pages are linked if there is a web link from one to the other. We will use both the directed graph, in which one page which is linked to the other leads to only one direction for the concerning edge, and the undirected graph, for which there exists an edge if and only if there is one page linked to the other (we do not ask for the reciprocal page to be also linked to the other). 
+Choosing several specific events of each type, we will consider the graph built with pages concerning the event as nodes and a two pages are linked if there is a web link from one to the other. We will use both the directed graph, in which one page which is linked to the other leads to only one direction for the concerned edge, and the undirected graph, for which there exists an edge if and only if there is one page linked to the other. 
 \medskip
-Our question is: Does the number of views on the pages propagates in the pages in different ways depending on the type of events? If yes, how do they behave?
+
+The questions we ask ourselves are the following:  Does the number of views on the pages propagate in the pages in different ways depending on the type of event? If yes, how do they behave?
 \medskip
-We will consider the difference between the number of views of the day before the event and the day of the event. 
+
+We will consider the quotient of the number of views of the day of the event by the number of views on the day before the event. 
 \medskip
-To analyse our data and try to answer our questions, we will first start by acquire the data, by building several graphs for each type of events, then explore them and try to get general properties of the graphs, building a general pipeline for our analysis. We then exploit the data, trying to test our hypothesis and finally draw conclusions. 
+
+To analyse our data and try to answer our questions, we will first start by acquiring the data and building several graphs for each type of event.  Then we explore them and try to get general properties of the graphs, building a general pipeline for our analysis. We then exploit the data, trying to test our hypothesis and finally draw conclusions. 
 
 \section{Data Acquisition}
 
-We constructed the graphs by selecting the wikipedia article concerning each event. We then grew the graphs around them by selecting the pages the event was linking to, and the pages linked from those. To reduce the amount of data we had, we randomly subsampled by giving a higher probability to stay in the graph to the nodes that are higher in the page, meaning they are stated early, so they are more likely to be important links. The resulting graphs are directed, unweighted and connected. In addition, we found the number of views per page, that we computed for blablabla. 
+We constructed the graphs by selecting the Wikipedia article corresponding to each event. We then grew the graphs around them by selecting the pages the event is linking to, and the pages linked from those. To reduce the amount of data we had, we randomly subsampled by giving a higher probability of staying in the graph to the nodes that are higher in the page, meaning they are stated early so they are more likely to be important links. The resulting graphs are directed, unweighted and connected. In addition, we found the number of views per page, that we computed for $\bf{ blablabla}$. 
+The number of views per page give us signals on the nodes which we transform into the quotient \[\frac{\text{number of views the day after} }{\text{number of views the day before}}\] on each node. 
+
 
 
 
 \section{Data Exploration}
 
-We start by analysing some basic properties of each graphs. The results are stated in the  following table. 
+We start by analysing some basic properties of each graph, such as the number of nodes, the number of edges, the diameter of the graph, the average clustering coefficient with the tools available in Networkx. The results are stated in the  following table. 
 
 \begin{table}[htbp]
 \caption{Basic properties of the graphs}
@@ -57,17 +63,38 @@ We start by analysing some basic properties of each graphs. The results are stat
 \cline{2-5} 
 \textbf{ } & \textbf{\textit{Number of nodes}}& \textbf{\textit{Number of edges}}& \textbf{\textit{Diameter}} & \textbf{\textit{Average Clustering Coefficient}}\\
 \hline
-copy& More table copy$^{\mathrm{a}}$& &  \\
+Graph 1 & More table copy$^{\mathrm{a}}$& & & \\
 \hline
-\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
+Graph 2& More table copy$^{\mathrm{a}}$& & & \\
+\hline
+Graph 3& More table copy$^{\mathrm{a}}$& & & \\
+\hline
+Graph 4& More table copy$^{\mathrm{a}}$& & & \\
+\hline
+Graph 5& More table copy$^{\mathrm{a}}$& & & \\
+\hline
+Graph 6 & More table copy$^{\mathrm{a}}$& & & \\
+\hline
+\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.} \\
 \end{tabular}
 \label{tab1}
 \end{center}
 \end{table}
 
+Some other properties we would like to  study are the the degree distributions, the strongly connected components of the graphs and do spectral clustering on the undirected versions of our graphs. 
+\section{Data Exploitation}
 
+We now come to the most important part of our analysis, which is the following: we consider the number of views as a signal on the graph. We would like to see how it behaves. In order to make a sensible comparision of number of views and how these number of views evolve for each graph we use the quotient of the number of views before and at the day of the event. 
+The general pipeline of our analysis is :  
+\begin{enumerate}
+\item 
+\item 
+\end{enumerate}
 
 \section{Conclusion}
+
+Note that if we had the computational power to build a graph with all the pages involved by all the events that we considered together, it would have been much more interesting to see how the number of views evolves locally on the graph. By doing the methods presented in this report, we can only do a “zoom-in” on a specific part of this big graph and analyse it independently of the rest. 
+
 
 \section*{References}
 
