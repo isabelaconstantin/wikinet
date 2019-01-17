@@ -200,8 +200,9 @@ if __name__ == '__main__':
             print(f'Writing {outname}_checkpoint.gpickle')
             nx.write_gpickle(G, outname+'.gpickle')
 
-        print(f'Reading {outname}_checkpoint.gpickle')
-        G = nx.read_gpickle(outname+'_checkpoint.gpickle')
+        cpfile = outname+'_checkpoint.gpickle'
+        print(f'Reading {cpfile}')
+        G = nx.read_gpickle(cpfile)
 
         views_graph = get_wikigraph_views(G, before, after)
 
