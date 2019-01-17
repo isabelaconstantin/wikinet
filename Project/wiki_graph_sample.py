@@ -189,6 +189,7 @@ if __name__ == '__main__':
         after = date + datetime.timedelta(days=ndaysafter)
 
         outname = ''.join(c for c in article if c.isalnum())
+        cpfile = outname+'_checkpoint.gpickle'
 
         if not args.checkpoint:
             print(f'Crawl Wikipedia from {article}')
@@ -197,10 +198,9 @@ if __name__ == '__main__':
 
             print(f'nodes: {G.number_of_nodes()} edges: {G.number_of_edges()}')
 
-            print(f'Writing {outname}_checkpoint.gpickle')
-            nx.write_gpickle(G, outname+'.gpickle')
+            print(f'Writing {cpfile}')
+            nx.write_gpickle(G, cpfile)
 
-        cpfile = outname+'_checkpoint.gpickle'
         print(f'Reading {cpfile}')
         G = nx.read_gpickle(cpfile)
 
