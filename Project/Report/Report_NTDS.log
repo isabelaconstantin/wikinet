@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.23)  18 JAN 2019 18:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.23)  18 JAN 2019 18:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1110,7 +1110,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 31.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (27.36671pt too wide) in paragraph at lines 65--80
+Overfull \hbox (27.36671pt too wide) in paragraph at lines 61--76
  [] 
  []
 
@@ -1118,25 +1118,25 @@ Overfull \hbox (27.36671pt too wide) in paragraph at lines 65--80
 
 
 ]
-<viewsSH.pdf, id=122, 269.13675pt x 227.03696pt>
+<viewsSH.pdf, id=127, 269.13675pt x 227.03696pt>
 File: viewsSH.pdf Graphic file (type pdf)
 <use viewsSH.pdf>
-Package pdftex.def Info: viewsSH.pdf  used on input line 127.
+Package pdftex.def Info: viewsSH.pdf  used on input line 122.
 (pdftex.def)             Requested size: 77.39685pt x 65.2882pt.
-<viewsSL.pdf, id=123, 278.71942pt x 227.03696pt>
+<viewsSL.pdf, id=128, 278.71942pt x 227.03696pt>
 File: viewsSL.pdf Graphic file (type pdf)
 <use viewsSL.pdf>
-Package pdftex.def Info: viewsSL.pdf  used on input line 130.
+Package pdftex.def Info: viewsSL.pdf  used on input line 125.
 (pdftex.def)             Requested size: 77.39685pt x 63.0468pt.
-<viewsAR.pdf, id=124, 278.71942pt x 227.03696pt>
+<viewsAR.pdf, id=129, 278.71942pt x 227.03696pt>
 File: viewsAR.pdf Graphic file (type pdf)
 <use viewsAR.pdf>
-Package pdftex.def Info: viewsAR.pdf  used on input line 133.
+Package pdftex.def Info: viewsAR.pdf  used on input line 128.
 (pdftex.def)             Requested size: 77.39685pt x 63.0468pt.
-<matrices.png, id=125, 1084.05pt x 289.08pt>
+<matrices.png, id=130, 1084.05pt x 289.08pt>
 File: matrices.png Graphic file (type png)
 <use matrices.png>
-Package pdftex.def Info: matrices.png  used on input line 171.
+Package pdftex.def Info: matrices.png  used on input line 166.
 (pdftex.def)             Requested size: 252.0pt x 67.19716pt.
 
 [2 <./viewsSH.pdf> <./viewsSL.pdf
@@ -1151,52 +1151,52 @@ n: multiple pdfs with page group included in a single page
 <degreeSH.png, id=228, 433.62pt x 289.08pt>
 File: degreeSH.png Graphic file (type png)
 <use degreeSH.png>
-Package pdftex.def Info: degreeSH.png  used on input line 184.
+Package pdftex.def Info: degreeSH.png  used on input line 179.
 (pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
 <degreeSL.png, id=229, 433.62pt x 289.08pt>
 File: degreeSL.png Graphic file (type png)
 <use degreeSL.png>
-Package pdftex.def Info: degreeSL.png  used on input line 187.
+Package pdftex.def Info: degreeSL.png  used on input line 182.
 (pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
 <degreeAR.png, id=230, 433.62pt x 289.08pt>
 File: degreeAR.png Graphic file (type png)
 <use degreeAR.png>
-Package pdftex.def Info: degreeAR.png  used on input line 190.
+Package pdftex.def Info: degreeAR.png  used on input line 185.
 (pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
 <degreeinSH.png, id=231, 433.62pt x 289.08pt>
 File: degreeinSH.png Graphic file (type png)
 <use degreeinSH.png>
-Package pdftex.def Info: degreeinSH.png  used on input line 194.
+Package pdftex.def Info: degreeinSH.png  used on input line 189.
 (pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
 <degreeinSL.png, id=232, 433.62pt x 289.08pt>
 File: degreeinSL.png Graphic file (type png)
 <use degreeinSL.png>
-Package pdftex.def Info: degreeinSL.png  used on input line 197.
+Package pdftex.def Info: degreeinSL.png  used on input line 192.
 (pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
 <degreeinAR.png, id=233, 433.62pt x 289.08pt>
 File: degreeinAR.png Graphic file (type png)
 <use degreeinAR.png>
-Package pdftex.def Info: degreeinAR.png  used on input line 200.
+Package pdftex.def Info: degreeinAR.png  used on input line 195.
 (pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
 <degreeoutSH.png, id=234, 433.62pt x 289.08pt>
 File: degreeoutSH.png Graphic file (type png)
 <use degreeoutSH.png>
-Package pdftex.def Info: degreeoutSH.png  used on input line 204.
+Package pdftex.def Info: degreeoutSH.png  used on input line 199.
 (pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
 <degreeoutSL.png, id=235, 433.62pt x 289.08pt>
 File: degreeoutSL.png Graphic file (type png)
 <use degreeoutSL.png>
-Package pdftex.def Info: degreeoutSL.png  used on input line 207.
+Package pdftex.def Info: degreeoutSL.png  used on input line 202.
 (pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
 <degreeoutAR.png, id=236, 433.62pt x 289.08pt>
 File: degreeoutAR.png Graphic file (type png)
 <use degreeoutAR.png>
-Package pdftex.def Info: degreeoutAR.png  used on input line 210.
+Package pdftex.def Info: degreeoutAR.png  used on input line 205.
 (pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
 <signal_scatter.pdf, id=238, 853.76958pt x 251.40424pt>
 File: signal_scatter.pdf Graphic file (type pdf)
 <use signal_scatter.pdf>
-Package pdftex.def Info: signal_scatter.pdf  used on input line 230.
+Package pdftex.def Info: signal_scatter.pdf  used on input line 225.
 (pdftex.def)             Requested size: 252.0pt x 74.20197pt.
  [3 <./degreeSH.png> <./degreeSL.png> <./degreeAR.png> <./degreeinSH.png> <./de
 greeinSL.png> <./degreeinAR.png> <./degreeoutSH.png> <./degreeoutSL.png> <./deg
@@ -1204,27 +1204,27 @@ reeoutAR.png> <./signal_scatter.pdf>]
 <uniboat.png, id=301, 429.605pt x 281.05pt>
 File: uniboat.png Graphic file (type png)
 <use uniboat.png>
-Package pdftex.def Info: uniboat.png  used on input line 252.
+Package pdftex.def Info: uniboat.png  used on input line 247.
 (pdftex.def)             Requested size: 252.0pt x 164.86172pt.
 <heat_scatter.pdf, id=303, 861.32906pt x 265.13054pt>
 File: heat_scatter.pdf Graphic file (type pdf)
 <use heat_scatter.pdf>
-Package pdftex.def Info: heat_scatter.pdf  used on input line 262.
+Package pdftex.def Info: heat_scatter.pdf  used on input line 257.
 (pdftex.def)             Requested size: 252.0pt x 77.56958pt.
 <inverse_scatter.pdf, id=304, 854.94585pt x 265.13054pt>
 File: inverse_scatter.pdf Graphic file (type pdf)
 <use inverse_scatter.pdf>
-Package pdftex.def Info: inverse_scatter.pdf  used on input line 263.
+Package pdftex.def Info: inverse_scatter.pdf  used on input line 258.
 (pdftex.def)             Requested size: 252.0pt x 78.14809pt.
 <heat_loss.pdf, id=305, 433.62pt x 289.08pt>
 File: heat_loss.pdf Graphic file (type pdf)
 <use heat_loss.pdf>
-Package pdftex.def Info: heat_loss.pdf  used on input line 274.
+Package pdftex.def Info: heat_loss.pdf  used on input line 269.
 (pdftex.def)             Requested size: 252.0pt x 168.00174pt.
 <inverse_loss.pdf, id=306, 433.62pt x 289.08pt>
 File: inverse_loss.pdf Graphic file (type pdf)
 <use inverse_loss.pdf>
-Package pdftex.def Info: inverse_loss.pdf  used on input line 275.
+Package pdftex.def Info: inverse_loss.pdf  used on input line 270.
 (pdftex.def)             Requested size: 252.0pt x 168.00174pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1244,16 +1244,16 @@ lusion: multiple pdfs with page group included in a single page
 >]
 File: signal_scatter.pdf Graphic file (type pdf)
 <use signal_scatter.pdf>
-Package pdftex.def Info: signal_scatter.pdf  used on input line 291.
+Package pdftex.def Info: signal_scatter.pdf  used on input line 286.
 (pdftex.def)             Requested size: 252.0pt x 74.20197pt.
 File: heat_scatter.pdf Graphic file (type pdf)
 <use heat_scatter.pdf>
-Package pdftex.def Info: heat_scatter.pdf  used on input line 292.
+Package pdftex.def Info: heat_scatter.pdf  used on input line 287.
 (pdftex.def)             Requested size: 252.0pt x 77.56958pt.
 <UnitedStates.pdf, id=477, 278.71942pt x 227.03696pt>
 File: UnitedStates.pdf Graphic file (type pdf)
 <use UnitedStates.pdf>
-Package pdftex.def Info: UnitedStates.pdf  used on input line 301.
+Package pdftex.def Info: UnitedStates.pdf  used on input line 296.
 (pdftex.def)             Requested size: 252.0pt x 205.28058pt.
  (./Report_NTDS.bbl
 Underfull \hbox (badness 2435) in paragraph at lines 10--14
@@ -1274,19 +1274,19 @@ Before submitting the final camera ready copy, remember to:
  process uses the appropriate paper size.
 
 [5 <./UnitedStates.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 315.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 315.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 310.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 310.
  (./Report_NTDS.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 315.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 315.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 310.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 310.
 Package rerunfilecheck Info: File `Report_NTDS.out' has not changed.
 (rerunfilecheck)             Checksum: E2F288F34ADFB94884742070781C802E;858.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 315.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 310.
  ) 
 Here is how much of TeX's memory you used:
  27433 strings out of 492649
  539611 string characters out of 6129621
- 610175 words of memory out of 5000000
+ 609175 words of memory out of 5000000
  30900 multiletter control sequences out of 15000+600000
  567787 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1304,7 +1304,7 @@ dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-d
 ist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/
 type1/urw/times/utmr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/
 times/utmri8a.pfb>
-Output written on Report_NTDS.pdf (5 pages, 885484 bytes).
+Output written on Report_NTDS.pdf (5 pages, 885638 bytes).
 PDF statistics:
  570 PDF objects out of 1000 (max. 8388607)
  238 compressed objects within 3 object streams
