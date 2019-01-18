@@ -1,4 +1,4 @@
-# A Wikipedia Tour of Death or how University College Boat Club became popular overnight
+# A Wikipedia Tour of Death - or how University College Boat Club became popular
 
 ---
 
