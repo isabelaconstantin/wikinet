@@ -15,7 +15,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Hello I'm a title\\
+\title{A Wikipedia Tour of Death - Or How University College Boat Club Became Popular\\
 {\footnotesize Network Tour of Data Science Report, January 2019}
 }
 
@@ -46,18 +46,14 @@ back arrow disabled=true}
 \smartdiagram[flow diagram:horizontal]{Data Acquisition,Data Exploration,Data Exploitation}
 \end{center}
 
-We first start by acquiring the data and building the three graphs around the people we chose, in Section \ref{acquisition}. Then, we explore the graphs and try to extract their general properties in Section \ref{exploration}. In Section \ref{exploitation}, we exploit the data, trying to test our hypothesis and we finally draw conclusions in Section \ref{conclusion}. 
+We first start by acquiring the data and building the three graphs around the people we chose, in Section \ref{acquisition}. Then, we explore the graphs and try to extract their general properties in Section \ref{exploration}. In Section \ref{exploitation}, we exploit the data, trying to test our hypothesis and we finally draw conclusions in Section \ref{conclusion}. All the code used for this report is available in \cite{Repo}. 
 
 \section{Data Acquisition} \label{acquisition}
 
 We constructed the graphs around the selected Wikipedia articles corresponding to each of the following people: Stephen Hawking \cite{stephenhawking}, Stan Lee \cite{stanlee} and Alan Rickman \cite{alanrickman}. To make it easier for the following description, we will say that a node or page \textit{links in} another one if there is a link from the former to the latter, and \textit{links out} if the link is from the latter to the former. We grew the graphs around the main pages (Stephen Hawking, Stan Lee, Alan Rickman) by selecting the pages linked out from the main ones (step $1$), then we added pages linked out from the pages at step $1$ (step $2$), and so on. At each step $i$, we hence added pages that were linked out from the previous pages of step $i-1$. Essentially, we crawled the pages by a slightly modified version of Bread First Search. 
 
 \subsection{Sampling}
-It would be too much data to add all the linked out pages at each step.  To reduce the amount of data, we  subsampled by making several choices of parameters, described as follow. First, we randomly subsampled the nodes by giving a higher probability of being added in the graph to the pages which link is higher (in order of appearance) in previous pages. This is because pages that are stated early in a Wikipedia page are more likely to be really related to the subject of the page. We hence set up two percentage parameters $\theta_1$ and $\theta_2$. Let us take a page at step $i$. The first $\theta_1$ percent of links from that page constitute for $\theta_2$ percent of the edges linked out from this page at step $i+1$. Our next choice of parameter is the number of neighbors for the main page, i.e. the number of pages that will be taken at step $1$. We call this parameter $N_{step1}$. We also assign a minimum of popularity parameter, $m_{pop}$, which is the minimum number of out-links on a page for the page to be considered as a possible node. The last parameter that we can set up is the maximal number of nodes $N_{max}$. 
-
-\medskip 
-
-The parameters are summed up in the following table. 
+It would be too much data to add all the linked out pages at each step.  To reduce the amount of data, we  subsampled by making several choices of parameters, described as follow. First, we randomly subsampled the nodes by giving a higher probability of being added in the graph to the pages which link is higher (in order of appearance) in previous pages. This is because pages that are stated early in a Wikipedia page are more likely to be really related to the subject of the page. We hence set up two percentage parameters $\theta_1$ and $\theta_2$. Let us take a page at step $i$. The first $\theta_1$ percent of links from that page constitute for $\theta_2$ percent of the edges linked out from this page at step $i+1$. Our next choice of parameter is the number of neighbors for the main page, i.e. the number of pages that will be taken at step $1$. We call this parameter $N_{step1}$. We also assign a minimum of popularity parameter, $m_{pop}$, which is the minimum number of out-links on a page for the page to be considered as a possible node. The last parameter that we can set up is the maximal number of nodes $N_{max}$. The parameters are summed up in the following table. 
 
 \begin{table}[htbp]
 \caption{Parameters}
@@ -81,7 +77,6 @@ $N_{max}$  &  Max number of nodes & max$\_$nodes&  2701 \\
 \end{table}
 
 We set up the values of the parameters for the pages that are important and related to the subject to have a higher probability to be in the graphs. We chose them such that the top $20$ percent of the links account for $50$ percent of the sampled links (parameters $\theta_1$ and $\theta_2$). At step $1$, we added $150$ links (parameter $N_{step1}$). To be considered as a possible node, a page needed at least $30$ out-links (parameter $m_{pop}$). Last but not least, the maximum number of nodes in the graph, $N_{max}=2701$, was selected at random between $150 \times 3 \times 3$ and $150 \times 3 \times 3 \times 3$ to make sure that we would have at least $5$ steps in the process. Indeed, at each step we added on average $3$ links from each node, and we started with $150$ nodes after step $1$.
-
 
 \medskip
 
@@ -228,7 +223,7 @@ At the time of the event, pages views spike, as shown in Figure \ref{views}. Our
 
 \begin{figure}[!htb] \label{circle}
   \includegraphics[width=\linewidth]{signal_scatter.pdf}
-\caption{Only the nodes of the graphs are represented here. The central node of each graph stands for Stephen Hawking, Stan Lee and Alan Rickman respectively. One can see very clearly that the quotient signal is much higher in the center, near the main person, and that it decreases quite fast when going away from the center.}
+\caption{Only the nodes of the graphs are represented here. The central node of each graph stands for Stephen Hawking, Stan Lee and Alan Rickman respectively. One can see very clearly that the quotient signal is much higher in the center, near the main person, and that it decreases very fast when going away from the center.}
 \end{figure}
 
 Note that we tried several ways to represent our graph, including spectral clustering and eigenmaps, as described in \cite{clustering} and \cite{laplacian}. However, since our graphs were constructed in very specific ways, the representation in circle of Figure \ref{circle} is the best for our purpose. 
@@ -238,8 +233,8 @@ Note that we tried several ways to represent our graph, including spectral clust
  
  \medskip
  
-We looked at the five highest signals for each graphs. For Stephen Hawking, the nodes with highest signals are: "University College Boat Club (Oxford)"(516.00)
-"Stephen Hawking" (451.57),"Lucasian Professor of Mathematics" (268.66),"St Albans School, Hertfordshire" (180.43 ),"Keep Talking" (153.22) and "God Created the Integers" (116.60).
+We looked at the five highest signals for each graphs. For Stephen Hawking, the nodes with highest signals are: "University College Boat Club (Oxford)"(516.00), 
+"Stephen Hawking" (451.57), "Lucasian Professor of Mathematics" (268.66), "St Albans School, Hertfordshire" (180.43 ),"Keep Talking" (153.22) and "God Created the Integers" (116.60).
 \newline
 For Stan Lee, the nodes with highest signal are:  "Stan Lee" (347.5), "List of comics creators appearing in comics" (106.9), "Bullpen Bulletins" (82.43), "Bill Everett" (76.97), "Don Heck" (58.83 ) and "Martin Goodman (publisher)" (42.63). 
 \newline
@@ -256,7 +251,7 @@ Those pages have very few views in general. The reason why the signal is so high
 \subsection{Comparison with other types of signals}
 
 We tried to see if we can model this behaviour by applying a Dirac signal on the central node using Graph Signal Processing as introduced in \cite{signalprocessing}.
-Our assumption is that our signal acts like a Dirac impulse on the main page and then spreads to the neigbouring pages. We tried to compare it to several kernel coming from a Dirac impulse. The following figure shows a Dirac impulse with a heat kernel and an inverse kernel. 
+Our assumption is that our signal acts like a Dirac impulse on the main page and then spreads to the neighbouring pages. We tried to compare it to several kernels coming from a Dirac impulse. The following figure shows a Dirac impulse with a heat kernel and an inverse kernel. 
 
 \begin{figure}[!htb]
 \includegraphics[width=\linewidth]{heat_scatter.pdf}
@@ -264,7 +259,7 @@ Our assumption is that our signal acts like a Dirac impulse on the main page and
 \caption{A Dirac impulse with heat kernel (top) and inverse kernel (bottom).} 
 \end{figure}
 
-They do not look as similar as we expected. We can visually tell that the increase in views is more homogenous for the heat and inverse kernels. However, the choice of the filter time constant is not trivial. 
+They do not look as similar to our signal as we expected. We can visually tell that the increase in views is more homogenous for the heat and inverse kernels. However, the choice of the filter time constant is not trivial. 
 
 \medskip
 
@@ -277,7 +272,7 @@ We tried to find an optimal parameter to best fit the sampled signal using $L1$ 
 \end{figure}
 
 We notice the error is low for extremely high and extremely low t, meaning that
-the dirac input and a constant better approximate the signal.
+the dirac input and a constant both better approximate the signal than with a heat or inverse kernel filter.
 
 \medskip
 
@@ -295,11 +290,11 @@ We tried to compare our signal to several models, and none of them fit very well
 
 Our explanation for the general behavior or the signal is the following: 
 \newline
-The day a famous person dies, people will visit their wikipedia page and click on a bunch of links from there. Some of these links are barely visited usually, and hence will get a very high number of views compared to usually. If we take a page with a lot of views every day, like "United States" for example, the death of someone will not affect the number of views much. The following plot illustrates this fact. 
+The day a famous person dies, people will visit their Wikipedia page and click on a bunch of links from there. Some of these links are barely visited usually, and hence will get a very high number of views compared to usually. If we take a page with a lot of views every day, like "United States" for example, the death of someone will not affect the number of views much. The following plot illustrates this fact. 
 
 \begin{figure}[!htb]
 \includegraphics[width=\linewidth]{UnitedStates.pdf}
-\caption{Number of views for "United States" before and after the death of Stan Lee.} 
+\caption{Number of views for "United States" before and after the death of Stan Lee. Clearly, the death of Stan Lee did not affect the views for this page at all.} 
 \end{figure}
 
 Note that if we had the computational power to build a graph with all the pages involved by all the events that we considered together, it would have been much more interesting to see how the number of views evolves locally on the graph. By doing the methods presented in this report, we can only do a “zoom-in” on a specific part of this big graph and analyse it independently of the rest. 

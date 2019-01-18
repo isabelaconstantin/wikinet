@@ -6,6 +6,12 @@ Mikhail Belkin and Partha Niyogi.
   representation.
 \newblock {\em Neural computation}, 15(6):1373--1396, 2003.
 
+\bibitem{Repo}
+{Isabela Constantin, Adelie Garin, Celia Hacker, Michael Spieler}.
+\newblock Github repository wikinet.
+\newblock
+  \url{https://github.com/isabelaconstantin/wikinet/tree/master/Project}.
+
 \bibitem{signalprocessing}
 David~I Shuman, Sunil~K Narang, Pascal Frossard, Antonio Ortega, and Pierre
   Vandergheynst.
