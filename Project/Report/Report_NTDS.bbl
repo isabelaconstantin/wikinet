@@ -18,4 +18,19 @@ Ulrike Von~Luxburg.
 \newblock A tutorial on spectral clustering.
 \newblock {\em Statistics and computing}, 17(4):395--416, 2007.
 
+\bibitem{alanrickman}
+{Wikipedia}.
+\newblock Alan rickman.
+\newblock \url{https://en.wikipedia.org/wiki/Alan_Rickman}.
+
+\bibitem{stanlee}
+{Wikipedia}.
+\newblock Stan lee.
+\newblock \url{https://en.wikipedia.org/wiki/Stan_Lee}.
+
+\bibitem{stephenhawking}
+{Wikipedia}.
+\newblock Stephen hawking.
+\newblock \url{https://en.wikipedia.org/wiki/Stephen_Hawking}.
+
 \end{thebibliography}
