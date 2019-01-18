@@ -36,7 +36,7 @@ The question we ask ourselves is the following: does the number of views on the 
 
 \medskip
 
-To answer this question, we will study the quotient $Q_i$ for each node $i$ of the graph and analyse the different values $Q_i$  as a signal on the graph. We build a general pipeline to analyse the three graphs in the same matter, to be able to compare them. Ourgeneral pipeline is the following: 
+To answer this question, we will study the quotient $Q_i$ for each node $i$ of the graph and analyse the different values $Q_i$  as a signal on the graph. We build a general pipeline to analyse the three graphs in the same matter, to be able to compare them. Our general pipeline is the following: 
 
 \begin{center}
 \smartdiagramset{border color=none,
@@ -50,7 +50,7 @@ We first start by acquiring the data and building the three graphs around the pe
 
 \section{Data Acquisition} \label{acquisition}
 
-We constructed the graphs around the selected Wikipedia articles corresponding to each of the following people: Stephen Hawking \cite{stephenhawking}, Stan Lee \cite{stanlee} and Alan Rickman \cite{alanrickman}. To make it easier for the following description, we will say that a node or page \textit{link in} another one if there is a link from the former to the latter, and \textit{link out} if the link is from the latter to the former. We grew the graphs around the main pages (Stephen Hawking, Stan Lee, Alan Rickman) by selecting the pages linked out from the main ones (step $1$), then we added pages linked out from the pages at step $1$ (step $2$), and so on. At each step $i$, we hence added pages that were linked out from the previous pages of step $i-1$. 
+We constructed the graphs around the selected Wikipedia articles corresponding to each of the following people: Stephen Hawking \cite{stephenhawking}, Stan Lee \cite{stanlee} and Alan Rickman \cite{alanrickman}. To make it easier for the following description, we will say that a node or page \textit{links in} another one if there is a link from the former to the latter, and \textit{links out} if the link is from the latter to the former. We grew the graphs around the main pages (Stephen Hawking, Stan Lee, Alan Rickman) by selecting the pages linked out from the main ones (step $1$), then we added pages linked out from the pages at step $1$ (step $2$), and so on. At each step $i$, we hence added pages that were linked out from the previous pages of step $i-1$. Essentially, we crawled the pages by a slightly modified version of Bread First Search. 
 
 \subsection{Sampling}
 It would be too much data to add all the linked out pages at each step.  To reduce the amount of data, we  subsampled by making several choices of parameters, described as follow. First, we randomly subsampled the nodes by giving a higher probability of being added in the graph to the pages which link is higher (in order of appearance) in previous pages. This is because pages that are stated early in a Wikipedia page are more likely to be really related to the subject of the page. We hence set up two percentage parameters $\theta_1$ and $\theta_2$. Let us take a page at step $i$. The first $\theta_1$ percent of links from that page constitute for $\theta_2$ percent of the edges linked out from this page at step $i+1$. Our next choice of parameter is the number of neighbors for the main page, i.e. the number of pages that will be taken at step $1$. We call this parameter $N_{step1}$. We also assign a minimum of popularity parameter, $m_{pop}$, which is the minimum number of out-links on a page for the page to be considered as a possible node. The last parameter that we can set up is the maximal number of nodes $N_{max}$. 
@@ -66,19 +66,24 @@ The parameters are summed up in the following table.
 \hline
  & Use & Name in code & Value \\
 \hline
-$\theta_1$& Top  percentage of links  & percentage$\_1$ & \\
+$\theta_1$& Top  percentage of links  & percentage$\_1$ & 0.2 \\
 \hline
-$\theta_2$& Percentage of subsampled links &  percentage$\_1\_$subsample &  \\
+$\theta_2$& Percentage of subsampled links &  percentage$\_1\_$subsample &  0.5\\
 \hline
-$N_{step1}$  &  Number of pages taken at step 1   & n$\_$links$\_$hop1  &  \\
+$N_{step1}$  &  Number of pages taken at step 1   & n$\_$links$\_$hop1  & 150  \\
 \hline
-$m_{pop}$  & Mimimum popularity  & min$\_$popularity & \\
+$m_{pop}$  & Mimimum popularity  & min$\_$popularity &30 \\
 \hline
-$N_{max}$  &  Max number of nodes & max$\_$nodes&  \\
+$N_{max}$  &  Max number of nodes & max$\_$nodes&  2701 \\
 \hline
 \end{tabular}
 \end{center}
 \end{table}
+
+We set up the values of the parameters for the pages that are important and related to the subject to have a higher probability to be in the graphs. We chose them such that the top $20$ percent of the links account for $50$ percent of the sampled links (parameters $\theta_1$ and $\theta_2$). At step $1$, we added $150$ links (parameter $N_{step1}$). To be considered as a possible node, a page needed at least $30$ out-links (parameter $m_{pop}$). Last but not least, the maximum number of nodes in the graph, $N_{max}=2701$, was selected at random between $150 \times 3 \times 3$ and $150 \times 3 \times 3 \times 3$ to make sure that we would have at least $5$ steps in the process. Indeed, at each step we added on average $3$ links from each node, and we started with $150$ nodes after step $1$.
+
+
+\medskip
 
 The resulting graphs are directed, unweighted and connected. 
 
@@ -88,24 +93,32 @@ For each page $i$  we computed the quotient  \[Q_i:=\frac{\text{number of views 
 
 \section{Data Exploration} \label{exploration}
 
-In this section, we analyse basic properties of the graphs. Let us first summarize the number of views of the pages for Stephen Hawking, Stan Lee and Alan Rickman. 
+In this section, we analyse basic properties of the graphs.  One point can be made with this section: an analysis of the same signal on those three graphs would make sense, because the three graphs are very similar. 
+
+\medskip
+
+Let us first summarize the number of views of the pages for Stephen Hawking, Stan Lee and Alan Rickman. 
 
 \begin{table}[htbp]
 \caption{Number of views}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
- Views & \textbf{Stephen Hawking}& \textbf{Stan Lee}& \textbf{Alan Rickman} \\
+ Views & Day of death &Day before & Quotient \\
 \hline
-Day of death & & &  \\
+\textbf{Stephen Hawking} & 7126234 & 15781 &  451.57 \\
 \hline
-Day before & & &  \\
+ \textbf{Stan Lee} &2404717 & 6929 &  347.05 \\
 \hline
-Quotient & & &  \\
+\textbf{Alan Rickman} & 3394010 & 3664 & 926.31 \\
 \hline
 \end{tabular}
 \end{center}
 \end{table}
+
+We can clearly see that the number of views grew a lot on the day of the death of each of them. The quotients are of the same order.
+
+\medskip
 
 We also computed the graphs of the number of views several days before and after the death just for those three pages. 
 
@@ -119,7 +132,7 @@ We also computed the graphs of the number of views several days before and after
 \minipage{0.15\textwidth}%
   \includegraphics[width=\linewidth]{viewsAR.png}
 \endminipage
-\caption{Number of views for Stephen Hawking, Stan Lee and Alan Rickman.}
+\caption{Number of views for Stephen Hawking, Stan Lee and Alan Rickman. For each person, we can see that there is a high peak of views on the days of the death, then the number of views quickly decays to the baseline.  }
 \end{figure}
 
 \subsection{Basic properties}
@@ -133,48 +146,65 @@ We start by analysing some basic properties of each graph, such as the number of
 \hline
  Properties & \textbf{Stephen Hawking}& \textbf{Stan Lee}& \textbf{Alan Rickman} \\
 \hline
-$\#$nodes& & &  \\
+$\#$nodes& 2701 &  2701 & 2701 \\
 \hline
-$\#$edges & & &  \\
+$\#$edges & 26921 & 33469 & 28012  \\
 \hline
-Diameter & & &  \\
+Diameter & 7 & 7 &  8\\
 \hline
-ACC& & &  \\
+ACC & 0.138 & 0.131 &  0.123\\
 \hline
-$\#$triangles  & & &  \\
-GCC & & &  \\
+$\#$triangles  & 41973 & 60096 & 38076  \\
+\hline
+GCC & 0.000335 & 0.000379 & 0.000251 \\
 \hline
 \end{tabular}
 \end{center}
 \end{table}
 
+The number of nodes are the same because they were set to be the same. The number of edges are of the same order, as well as the diameters and average and global clustering coefficients. This comes partially from the way the graphs were built in the same way and partially from the fact that we built them around very similar type of pages, famous people. The number of triangles is slightly higher for Stan Lee, most likely because there are more edges in the graph. Both the average clustering coefficient and the global clustering coefficient are very low. This comes from the construction of the graphs, they were built around one node, adding edges one by one. Hence, very few triangles are built on the way. 
+
+\subsection{Adjancency matrices}
+ The following figure shows the adjacency matrices of the undirected graphs.
+ 
+\begin{figure}[!htb]
+  \includegraphics[width=\linewidth]{matrices.png}
+\caption{Undirected ajacency matrices for Stephen Hawking, Stan Lee and Alan Rickman's graphs. }
+\end{figure}
+
+The three matrices are very similar. The straight lines "in diagonal" that appear in the three of them come from the construction of the graphs. The graphs were built by "chains", we start with one node and add many edges out of it. This will create a lot of entries nearby in the adjancency matrix. Starting from node $i$, a node $j$ is added, linked out to $i$. Then a node $k$ is added, linked out to $j$, and so on, with $i$, $j$, and $k$ quite close to each other. This gives those lines structure in the matrices. 
+
 \subsection{Degree Distribution}
 
-Here we study the degree distributions of each graph. 
+Here we study the degree distributions of each graph. We computed degree distributions with logarithmic scale for in-degrees, out-degrees and undirected case. The two most relevant, based on the graph construction, are the out-degree and the undirected case, that we show on the following figures. 
+
+\begin{figure}[!htb]
+%  \includegraphics[width=\linewidth]{degree.png}
+   % \includegraphics[width=\linewidth]{degreeout.png}
+\caption{Degree distribution of the graphs for Stephen Hawking, Stan Lee and Alan Rickman in logarithmic scale for the undirected case (top line) and out-degree (bottom line).  }
+\end{figure}
+
 
 \subsection{Strongly Connected Components}
 
-NOT SURE WE KEEP
-
-\medskip
-
-Our graphs are clearly connected in the undirected sense by the way we have constructed them. In this part we compute the number of strongly connected components. A directed graph is said to be strongly connected if there is a directed path connecting any two of its vertices. 
-
-\subsection{Spectral Clustering }
-% Spectral clustering will allow us to see if there are hubs in our graphs. We can use to compare how the signal propagates 
-
-SAME 
+A directed graph is said to be strongly connected if there is a directed path connecting any two of its vertices. Our graphs are clearly connected in the undirected sense by the way we have constructed them. All of them are not strongly connected, so we computed the number of strongly connected components. Stephen Hawking's graph has $51$ strongly connected components, both Stan Lee and Alan Rickman's graphs have $55$ strongly connected components. 
 
 \section{Data Exploitation} \label{exploitation}
 
 We now come to the most important part of our analysis, which is the following: we consider the number of views as a signal on the graph. We would like to see how it behaves. In order to make a sensible comparison of number of views and how these number of views evolve for each graph we use the quotient of the number of views before and at the day of the event. 
+The following figure shows the signal on the graphs. 
+\begin{figure}[!htb]
+  \includegraphics[width=\linewidth]{signal_scatter.pdf}
+\caption{Only the nodes of the graphs are represented here. The central node of each graph stands for Stephen Hawking, Stan Lee and Alan Rickman respectively. One can see very clearly that the quotient signal is much higher in the center, near the main person, and that it decreases quite fast when going away from the center.}
+\end{figure}
 
-COMPARE TO RANDOM SIGNAL; HEAT DIFFUSION; ANY OTHER IDEAS? 
+FURTHER ANALYSIS OF THIS
 
 \section{Conclusion} \label{conclusion}
 
 Note that if we had the computational power to build a graph with all the pages involved by all the events that we considered together, it would have been much more interesting to see how the number of views evolves locally on the graph. By doing the methods presented in this report, we can only do a “zoom-in” on a specific part of this big graph and analyse it independently of the rest. 
 
+IF YOU DIE; PEOPLE WILL SHOW INTEREST IN YOU: BUT ONLY MOMENTANELY SO DONT DIE
 
 \section*{References}
 
