@@ -124,13 +124,13 @@ We also computed the graphs of the number of views several days before and after
 
 \begin{figure}[!htb]
 \minipage{0.15\textwidth}
-  \includegraphics[width=\linewidth]{viewsSH.png}
+  \includegraphics[width=\linewidth]{viewsSH.pdf}
 \endminipage\hfill
 \minipage{0.15\textwidth}
-  \includegraphics[width=\linewidth]{viewsSL.png}
+  \includegraphics[width=\linewidth]{viewsSL.pdf}
 \endminipage\hfill
 \minipage{0.15\textwidth}%
-  \includegraphics[width=\linewidth]{viewsAR.png}
+  \includegraphics[width=\linewidth]{viewsAR.pdf}
 \endminipage
 \caption{Number of views for Stephen Hawking, Stan Lee and Alan Rickman. For each person, we can see that there is a high peak of views on the days of the death, then the number of views quickly decays to the baseline.  }
 \end{figure}
@@ -220,17 +220,59 @@ First, one can notice that the three types of degree distribution are very simil
 A directed graph is said to be strongly connected if there is a directed path connecting any two of its vertices. Our graphs are clearly connected in the undirected sense by the way we have constructed them. All of them are not strongly connected, so we computed the number of strongly connected components. Stephen Hawking's graph has $51$ strongly connected components, both Stan Lee and Alan Rickman's graphs have $55$ strongly connected components. Those numbers are relatively high. From the construction of the graphs, there are not many paths from any vertex to another one. Indeed, it is easy to go from Stan Lee to New York, for example, but more complicated to go from New York to Stan Lee. 
 
 \section{Data Exploitation} \label{exploitation}
-
+Note that we saw in the last Section that the graphs have very similar properties. 
 We now come to the most important part of our analysis, which is the following: we consider the number of views as a signal on the graph. We would like to see how it behaves. In order to make a sensible comparison of number of views and how these number of views evolve for each graph we use the quotient of the number of views before and at the day of the event. 
 The following figure shows the signal on the graphs. 
+
 \begin{figure}[!htb]
   \includegraphics[width=\linewidth]{signal_scatter.pdf}
 \caption{Only the nodes of the graphs are represented here. The central node of each graph stands for Stephen Hawking, Stan Lee and Alan Rickman respectively. One can see very clearly that the quotient signal is much higher in the center, near the main person, and that it decreases quite fast when going away from the center.}
 \end{figure}
 
-FURTHER ANALYSIS OF THIS
+ For each page, the number of views of the day before multiplied by the signal is the number of views of the day of the death. For example, "Stan Lee" had 347.5 times more views on the day of his death than the day before. 
+
+\subsection{Highest signals}
+
+We looked at the five highest signals for each graphs. For Stephen Hawking, the nodes with highest signals are: "University College Boat Club (Oxford)"(516.00)
+"Stephen Hawking" (451.57),"Lucasian Professor of Mathematics" (268.66),"St Albans School, Hertfordshire" (180.43 ),"Keep Talking" (153.22) and "God Created the Integers" (116.60).
+\newline
+For Stan Lee, the nodes with highest signal are:  "Stan Lee" (347.5), "List of comics creators appearing in comics" (106.9), "Bullpen Bulletins" (82.43), "Bill Everett" (76.97), "Don Heck" (58.83 ) and "Martin Goodman (publisher)" (42.63). 
+\newline
+For Alan Rickman, the nodes with highest signals are: "Alan Rickman" (926.31), "Truly, Madly, Deeply" (382.86), "My Name Is Rachel Corrie" (154.50, "Tom Burke (actor)" (123.02), "Eye in the Sky (2015 film)"( 66.47) and "Adam Leonard (singer-songwriter)" (52.00). 
+
+\medskip
+Those pages have very few views in general. The reason why the signal is so high is because the number of views increased drastically thanks to the death of Stephen Hawking, Stan Lee and Alan Rickman respectively. As an example, here is the number of views of the page "University College Boat Club (Oxford)". 
+
+\begin{figure}[!htb]
+  \includegraphics[width=\linewidth]{uniboat.png}
+\caption{Number of views before and after the death of Stephen Hawking for the page "University College Boat Club (Oxford)". This page had almost no views before the death of Stephen Hawking, a sudden interest on the day of his death and again no interest afterwards.}
+\end{figure}
+
+\subsection{Comparison with other types of signals}
+
+Our assumption is that our signal acts like a Dirac impulse on the main page and then spreads to the neigbouring pages. We tried to compare it to several kernel coming from a Dirac impulse. The following figure shows a Dirac impulse with a heat kernel and an inverse kernel. 
+
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth]{HeatKernel.png}
+\includegraphics[width=\linewidth]{InverseKernel.png}
+\caption{A Dirac impulse with heat kernel  with $t=0.1$ as parameter (top) and inverse kernel (bottom).} 
+\end{figure}
+
+They do not look as similar as we expected. To compare them with our signal, we computed $L1$ and $L2$ norms of the difference between the test signal and our signal.  We tried to optimize the parameters of the kernels to try to fit our signal better, but the results are not very good, as shown on the following figure. 
+
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth]{heat_loss.pdf}
+\includegraphics[width=\linewidth]{inverse_loss.pdf}
+\caption{The value of the $L1$ loss function for the parameter $t$ in heat and inverse kernels for the Stephen Hawking graph. The plot look similar for Stan Lee and Alan Rickman. } 
+\end{figure}
+
+As there does not seem to be a good parameter $t$ to fit our signal, we conclude that neither of these models fit our signal. Our explanation for the heat kernel is that it simulates the diffusion of a heat quantity (energy) on the graph. However, the page views is not a heat quantity that gets dispersed over the graph, it acts more like a source. Every visitor goes through the root page, which also counts as a view.
 
 \section{Conclusion} \label{conclusion}
+
+We tried to compare our signal to several models, and none of them fit well. 
+BLABLABLA
+\medskip
 
 Note that if we had the computational power to build a graph with all the pages involved by all the events that we considered together, it would have been much more interesting to see how the number of views evolves locally on the graph. By doing the methods presented in this report, we can only do a “zoom-in” on a specific part of this big graph and analyse it independently of the rest. 
 
