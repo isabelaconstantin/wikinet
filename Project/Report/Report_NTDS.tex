@@ -122,7 +122,7 @@ We can clearly see that the number of views grew a lot on the day of the death o
 
 We also computed the graphs of the number of views several days before and after the death just for those three pages. 
 
-\begin{figure}[!htb]
+\begin{figure}[!htb] \label{views}
 \minipage{0.15\textwidth}
   \includegraphics[width=\linewidth]{viewsSH.pdf}
 \endminipage\hfill
@@ -222,17 +222,22 @@ A directed graph is said to be strongly connected if there is a directed path co
 \section{Data Exploitation} \label{exploitation}
 Note that we saw in the last Section that the graphs have very similar properties. 
 We now come to the most important part of our analysis, which is the following: we consider the number of views as a signal on the graph. We would like to see how it behaves. In order to make a sensible comparison of number of views and how these number of views evolve for each graph we use the quotient of the number of views before and at the day of the event. 
-The following figure shows the signal on the graphs. 
 
-\begin{figure}[!htb]
+\medskip
+At the time of the event, pages views spike, as shown in Figure \ref{views}. Our assumption is that people visiting a page likely follow links to other pages to read more about a topic. The following figure shows the signal on the graphs and support this assumption. 
+
+\begin{figure}[!htb] \label{circle}
   \includegraphics[width=\linewidth]{signal_scatter.pdf}
 \caption{Only the nodes of the graphs are represented here. The central node of each graph stands for Stephen Hawking, Stan Lee and Alan Rickman respectively. One can see very clearly that the quotient signal is much higher in the center, near the main person, and that it decreases quite fast when going away from the center.}
 \end{figure}
 
- For each page, the number of views of the day before multiplied by the signal is the number of views of the day of the death. For example, "Stan Lee" had 347.5 times more views on the day of his death than the day before. 
+Note that we tried several ways to represent our graph, including spectral clustering and eigenmaps, as described in \cite{clustering} and \cite{laplacian}. However, since our graphs were constructed in very specific ways, the representation in circle of Figure \ref{circle} is the best for our purpose. 
 
 \subsection{Highest signals}
-
+ For each page, the number of views of the day before multiplied by the signal is the number of views of the day of the death. For example, "Stan Lee" had 347.5 times more views on the day of his death than the day before. 
+ 
+ \medskip
+ 
 We looked at the five highest signals for each graphs. For Stephen Hawking, the nodes with highest signals are: "University College Boat Club (Oxford)"(516.00)
 "Stephen Hawking" (451.57),"Lucasian Professor of Mathematics" (268.66),"St Albans School, Hertfordshire" (180.43 ),"Keep Talking" (153.22) and "God Created the Integers" (116.60).
 \newline
@@ -250,39 +255,59 @@ Those pages have very few views in general. The reason why the signal is so high
 
 \subsection{Comparison with other types of signals}
 
+We tried to see if we can model this behaviour by applying a Dirac signal on the central node using Graph Signal Processing as introduced in \cite{signalprocessing}.
 Our assumption is that our signal acts like a Dirac impulse on the main page and then spreads to the neigbouring pages. We tried to compare it to several kernel coming from a Dirac impulse. The following figure shows a Dirac impulse with a heat kernel and an inverse kernel. 
 
 \begin{figure}[!htb]
-\includegraphics[width=\linewidth]{HeatKernel.png}
-\includegraphics[width=\linewidth]{InverseKernel.png}
-\caption{A Dirac impulse with heat kernel  with $t=0.1$ as parameter (top) and inverse kernel (bottom).} 
+\includegraphics[width=\linewidth]{heat_scatter.pdf}
+\includegraphics[width=\linewidth]{inverse_scatter.pdf}
+\caption{A Dirac impulse with heat kernel (top) and inverse kernel (bottom).} 
 \end{figure}
 
-They do not look as similar as we expected. To compare them with our signal, we computed $L1$ and $L2$ norms of the difference between the test signal and our signal.  We tried to optimize the parameters of the kernels to try to fit our signal better, but the results are not very good, as shown on the following figure. 
+They do not look as similar as we expected. We can visually tell that the increase in views is more homogenous for the heat and inverse kernels. However, the choice of the filter time constant is not trivial. 
+
+\medskip
+
+We tried to find an optimal parameter to best fit the sampled signal using $L1$ and $L2$ error functions. The results are not very good, as shown on the following figure. 
 
 \begin{figure}[!htb]
 \includegraphics[width=\linewidth]{heat_loss.pdf}
 \includegraphics[width=\linewidth]{inverse_loss.pdf}
-\caption{The value of the $L1$ loss function for the parameter $t$ in heat and inverse kernels for the Stephen Hawking graph. The plot look similar for Stan Lee and Alan Rickman. } 
+\caption{Here is the value of the error in function of the the parameter $t$ in heat (top) and inverse (bottom) kernels for the Stephen Hawking graph. The plot look similar for Stan Lee and Alan Rickman. } 
 \end{figure}
 
-As there does not seem to be a good parameter $t$ to fit our signal, we conclude that neither of these models fit our signal. Our explanation for the heat kernel is that it simulates the diffusion of a heat quantity (energy) on the graph. However, the page views is not a heat quantity that gets dispersed over the graph, it acts more like a source. Every visitor goes through the root page, which also counts as a view.
+We notice the error is low for extremely high and extremely low t, meaning that
+the dirac input and a constant better approximate the signal.
+
+\medskip
+
+As there does not seem to be a good parameter $t$ to fit our signal, we conclude that the filtered dirac signal is not a suitable approximation of the actual signal. Our explanation for the heat kernel is that it simulates the diffusion of a heat quantity (energy) on the graph. However, the page views is not a heat quantity that gets dispersed over the graph, it acts more like a source. Every visitor goes through the root page, which also counts as a view.
 
 \section{Conclusion} \label{conclusion}
 
-We tried to compare our signal to several models, and none of them fit well. 
-BLABLABLA
-\medskip
+We tried to compare our signal to several models, and none of them fit very well in terms of loss function. The best model we could find visually is the heat kernel with parameter $t=0.1$, as shown on the following scatter plot. 
+
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth]{signal_scatter.pdf}
+\includegraphics[width=\linewidth]{heat_scatter.pdf}
+\caption{Our signal (top) and a Dirac impulse with heat kernel  with $t=0.1$ as parameter (bottom).} 
+\end{figure}
+
+Our explanation for the general behavior or the signal is the following: 
+\newline
+The day a famous person dies, people will visit their wikipedia page and click on a bunch of links from there. Some of these links are barely visited usually, and hence will get a very high number of views compared to usually. If we take a page with a lot of views every day, like "United States" for example, the death of someone will not affect the number of views much. The following plot illustrates this fact. 
+
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth]{UnitedStates.pdf}
+\caption{Number of views for "United States" before and after the death of Stan Lee.} 
+\end{figure}
 
 Note that if we had the computational power to build a graph with all the pages involved by all the events that we considered together, it would have been much more interesting to see how the number of views evolves locally on the graph. By doing the methods presented in this report, we can only do a “zoom-in” on a specific part of this big graph and analyse it independently of the rest. 
 
-IF YOU DIE; PEOPLE WILL SHOW INTEREST IN YOU: BUT ONLY MOMENTANELY SO DONT DIE
+\medskip
 
-WE NEED TO CITE THOSE <3
+Our final conclusion is: if you die, people will show interest in you on the day of your death, but this interest will decrease very fast. Hence, you would better not die. 
 
-\cite{laplacian}  
-\cite{signalprocessing}
-\cite{clustering}
 
 \bibliography{biblio}
 \bibliographystyle{plain}
