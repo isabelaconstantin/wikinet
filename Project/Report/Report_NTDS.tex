@@ -176,18 +176,48 @@ The three matrices are very similar. The straight lines "in diagonal" that appea
 
 \subsection{Degree Distribution}
 
-Here we study the degree distributions of each graph. We computed degree distributions with logarithmic scale for in-degrees, out-degrees and undirected case. The two most relevant, based on the graph construction, are the out-degree and the undirected case, that we show on the following figures. 
+Here we study the degree distributions of each graph. We computed degree distributions with logarithmic scale for in-degrees, out-degrees and undirected case. 
 
 \begin{figure}[!htb]
-%  \includegraphics[width=\linewidth]{degree.png}
-   % \includegraphics[width=\linewidth]{degreeout.png}
-\caption{Degree distribution of the graphs for Stephen Hawking, Stan Lee and Alan Rickman in logarithmic scale for the undirected case (top line) and out-degree (bottom line).  }
+
+\minipage{0.15\textwidth}
+  \includegraphics[width=\linewidth]{degreeSH.png}
+\endminipage\hfill
+\minipage{0.15\textwidth}
+  \includegraphics[width=\linewidth]{degreeSL.png}
+\endminipage\hfill
+\minipage{0.15\textwidth}%
+  \includegraphics[width=\linewidth]{degreeAR.png}
+\endminipage
+
+\minipage{0.15\textwidth}
+  \includegraphics[width=\linewidth]{degreeinSH.png}
+\endminipage\hfill
+\minipage{0.15\textwidth}
+  \includegraphics[width=\linewidth]{degreeinSL.png}
+\endminipage\hfill
+\minipage{0.15\textwidth}%
+  \includegraphics[width=\linewidth]{degreeinAR.png}
+\endminipage
+
+\minipage{0.15\textwidth}
+  \includegraphics[width=\linewidth]{degreeoutSH.png}
+\endminipage\hfill
+\minipage{0.15\textwidth}
+  \includegraphics[width=\linewidth]{degreeoutSL.png}
+\endminipage\hfill
+\minipage{0.15\textwidth}%
+  \includegraphics[width=\linewidth]{degreeoutAR.png}
+\endminipage
+
+\caption{Degree distribution of the graphs for Stephen Hawking, Stan Lee and Alan Rickman in logarithmic scale for the undirected case (top line), in-degree (middle line) and out-degree (bottom line).  }
 \end{figure}
 
+First, one can notice that the three types of degree distribution are very similar for the three graphs. There are many nodes with small degrees (in, out and total). Those are the nodes that were built at the end of the construction of the graphs. For in, out and total degrees, we can see that there are a few nodes with much higher degree. We extracted the highest degree node for each, and the results are not surprising. For out degree, Stan Lee and Alan Rickman get the highest degree for their respective graph. For the graph of Stephen Hawking, the title goes to the page "Culture of the United Kingdom", which is not that surprising as there is a section about sciences and technology that links out to many other related pages. For the in and total degrees, the three pages that get the highest degree in each graph are "United States" for Alan Rickman and Stan Lee, and "United Kingdom" for Stephen Hawking. This is not very surprising either, as those pages are cited a lot in the whole wikipedia, and our graphs do not make exceptions. In general, nodes with very high degrees are either important pages in wikipedia or very related to the people we consider. 
 
 \subsection{Strongly Connected Components}
 
-A directed graph is said to be strongly connected if there is a directed path connecting any two of its vertices. Our graphs are clearly connected in the undirected sense by the way we have constructed them. All of them are not strongly connected, so we computed the number of strongly connected components. Stephen Hawking's graph has $51$ strongly connected components, both Stan Lee and Alan Rickman's graphs have $55$ strongly connected components. 
+A directed graph is said to be strongly connected if there is a directed path connecting any two of its vertices. Our graphs are clearly connected in the undirected sense by the way we have constructed them. All of them are not strongly connected, so we computed the number of strongly connected components. Stephen Hawking's graph has $51$ strongly connected components, both Stan Lee and Alan Rickman's graphs have $55$ strongly connected components. Those numbers are relatively high. From the construction of the graphs, there are not many paths from any vertex to another one. Indeed, it is easy to go from Stan Lee to New York, for example, but more complicated to go from New York to Stan Lee. 
 
 \section{Data Exploitation} \label{exploitation}
 
@@ -206,8 +236,7 @@ Note that if we had the computational power to build a graph with all the pages 
 
 IF YOU DIE; PEOPLE WILL SHOW INTEREST IN YOU: BUT ONLY MOMENTANELY SO DONT DIE
 
-\section*{References}
-
+WE NEED TO CITE THOSE <3
 
 \cite{laplacian}  
 \cite{signalprocessing}

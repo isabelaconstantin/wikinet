@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.23)  18 JAN 2019 15:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.23)  18 JAN 2019 16:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1110,16 +1110,6 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 31.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-
-LaTeX Warning: Citation `stephenhawking' on page 1 undefined on input line 53.
-
-
-LaTeX Warning: Citation `stanlee' on page 1 undefined on input line 53.
-
-
-LaTeX Warning: Citation `alanrickman' on page 1 undefined on input line 53.
-
-
 Overfull \hbox (27.36671pt too wide) in paragraph at lines 65--80
  [] 
  []
@@ -1128,43 +1118,78 @@ Overfull \hbox (27.36671pt too wide) in paragraph at lines 65--80
 
 
 ]
-<viewsSH.png, id=108, 433.62pt x 289.08pt>
+<viewsSH.png, id=117, 433.62pt x 289.08pt>
 File: viewsSH.png Graphic file (type png)
 <use viewsSH.png>
 Package pdftex.def Info: viewsSH.png  used on input line 127.
 (pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
-<viewsSL.png, id=110, 433.62pt x 289.08pt>
+<viewsSL.png, id=119, 433.62pt x 289.08pt>
 File: viewsSL.png Graphic file (type png)
 <use viewsSL.png>
 Package pdftex.def Info: viewsSL.png  used on input line 130.
 (pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
-<viewsAR.png, id=111, 433.62pt x 289.08pt>
+<viewsAR.png, id=120, 433.62pt x 289.08pt>
 File: viewsAR.png Graphic file (type png)
 <use viewsAR.png>
 Package pdftex.def Info: viewsAR.png  used on input line 133.
 (pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
-<matrices.png, id=112, 1084.05pt x 289.08pt>
+<matrices.png, id=121, 1084.05pt x 289.08pt>
 File: matrices.png Graphic file (type png)
 <use matrices.png>
 Package pdftex.def Info: matrices.png  used on input line 171.
 (pdftex.def)             Requested size: 252.0pt x 67.19716pt.
 
 [2 <./viewsSH.png> <./viewsSL.png> <./viewsAR.png> <./matrices.png>]
-<signal_scatter.pdf, id=125, 872.07233pt x 264.6255pt>
+<degreeSH.png, id=135, 433.62pt x 289.08pt>
+File: degreeSH.png Graphic file (type png)
+<use degreeSH.png>
+Package pdftex.def Info: degreeSH.png  used on input line 184.
+(pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
+<degreeSL.png, id=136, 433.62pt x 289.08pt>
+File: degreeSL.png Graphic file (type png)
+<use degreeSL.png>
+Package pdftex.def Info: degreeSL.png  used on input line 187.
+(pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
+<degreeAR.png, id=137, 433.62pt x 289.08pt>
+File: degreeAR.png Graphic file (type png)
+<use degreeAR.png>
+Package pdftex.def Info: degreeAR.png  used on input line 190.
+(pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
+<degreeinSH.png, id=138, 433.62pt x 289.08pt>
+File: degreeinSH.png Graphic file (type png)
+<use degreeinSH.png>
+Package pdftex.def Info: degreeinSH.png  used on input line 194.
+(pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
+<degreeinSL.png, id=139, 433.62pt x 289.08pt>
+File: degreeinSL.png Graphic file (type png)
+<use degreeinSL.png>
+Package pdftex.def Info: degreeinSL.png  used on input line 197.
+(pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
+<degreeinAR.png, id=140, 433.62pt x 289.08pt>
+File: degreeinAR.png Graphic file (type png)
+<use degreeinAR.png>
+Package pdftex.def Info: degreeinAR.png  used on input line 200.
+(pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
+<degreeoutSH.png, id=141, 433.62pt x 289.08pt>
+File: degreeoutSH.png Graphic file (type png)
+<use degreeoutSH.png>
+Package pdftex.def Info: degreeoutSH.png  used on input line 204.
+(pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
+<degreeoutSL.png, id=142, 433.62pt x 289.08pt>
+File: degreeoutSL.png Graphic file (type png)
+<use degreeoutSL.png>
+Package pdftex.def Info: degreeoutSL.png  used on input line 207.
+(pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
+<degreeoutAR.png, id=143, 433.62pt x 289.08pt>
+File: degreeoutAR.png Graphic file (type png)
+<use degreeoutAR.png>
+Package pdftex.def Info: degreeoutAR.png  used on input line 210.
+(pdftex.def)             Requested size: 77.39685pt x 51.59546pt.
+<signal_scatter.pdf, id=144, 853.76958pt x 251.40424pt>
 File: signal_scatter.pdf Graphic file (type pdf)
 <use signal_scatter.pdf>
-Package pdftex.def Info: signal_scatter.pdf  used on input line 197.
-(pdftex.def)             Requested size: 252.0pt x 76.46484pt.
-
-
-LaTeX Warning: Citation `laplacian' on page 3 undefined on input line 212.
-
-
-LaTeX Warning: Citation `signalprocessing' on page 3 undefined on input line 21
-3.
-
-
-LaTeX Warning: Citation `clustering' on page 3 undefined on input line 214.
+Package pdftex.def Info: signal_scatter.pdf  used on input line 227.
+(pdftex.def)             Requested size: 252.0pt x 74.20197pt.
 
 (./Report_NTDS.bbl)
 
@@ -1178,35 +1203,24 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3 <./signal_scatter.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 219.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 219.
+[3 <./degreeSH.png> <./degreeSL.png> <./degreeAR.png> <./degreeinSH.png> <./deg
+reeinSL.png> <./degreeinAR.png> <./degreeoutSH.png> <./degreeoutSL.png> <./degr
+eeoutAR.png> <./signal_scatter.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 248.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 248.
  (./Report_NTDS.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 219.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 219.
-
-
-Package rerunfilecheck Warning: File `Report_NTDS.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Report_NTDS.out':
-(rerunfilecheck)             Before: 5F96AFEFC885BF015B5E198AA0BD5C3E;658
-(rerunfilecheck)             After:  15EF96007E0EBFCCF834D724EEFA5714;705.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 219.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 248.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 248.
+Package rerunfilecheck Info: File `Report_NTDS.out' has not changed.
+(rerunfilecheck)             Checksum: 03F512B43B54131DB83DFAF7D0A9EA16;705.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 248.
  ) 
 Here is how much of TeX's memory you used:
- 27344 strings out of 492649
- 537926 string characters out of 6129621
- 609755 words of memory out of 5000000
- 30834 multiletter control sequences out of 15000+600000
- 568894 words of font info for 95 fonts, out of 8000000 for 9000
+ 27388 strings out of 492649
+ 538708 string characters out of 6129621
+ 609954 words of memory out of 5000000
+ 30871 multiletter control sequences out of 15000+600000
+ 567787 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,13n,73p,10387b,977s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -1222,10 +1236,10 @@ dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-d
 ist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/
 type1/urw/times/utmr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/
 times/utmri8a.pfb>
-Output written on Report_NTDS.pdf (3 pages, 462346 bytes).
+Output written on Report_NTDS.pdf (3 pages, 523790 bytes).
 PDF statistics:
- 235 PDF objects out of 1000 (max. 8388607)
- 152 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 252 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 259 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 305 words of extra memory for PDF output out of 10000 (max. 10000000)
 
