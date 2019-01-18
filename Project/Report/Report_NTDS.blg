@@ -3,44 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Report_NTDS.aux
 The style file: plain.bst
 Database file #1: biblio.bib
-You've used 3 entries,
+You've used 6 entries,
             2118 wiz_defined-function locations,
-            522 strings with 4564 characters,
-and the built_in function-call counts, 1080 in all, are:
-= -- 108
-> -- 48
+            532 strings with 4785 characters,
+and the built_in function-call counts, 1692 in all, are:
+= -- 165
+> -- 69
 < -- 0
-+ -- 21
-- -- 16
-* -- 89
-:= -- 186
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 17
++ -- 30
+- -- 22
+* -- 104
+:= -- 288
+add.period$ -- 18
+call.type$ -- 6
+change.case$ -- 29
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 33
-empty$ -- 82
-format.name$ -- 16
-if$ -- 213
+cite$ -- 6
+duplicate$ -- 54
+empty$ -- 148
+format.name$ -- 22
+if$ -- 348
 int.to.chr$ -- 0
-int.to.str$ -- 3
+int.to.str$ -- 6
 missing$ -- 3
-newline$ -- 18
-num.names$ -- 6
-pop$ -- 11
+newline$ -- 33
+num.names$ -- 12
+pop$ -- 35
 preamble$ -- 1
-purify$ -- 14
+purify$ -- 23
 quote$ -- 0
-skip$ -- 22
+skip$ -- 46
 stack$ -- 0
-substring$ -- 92
-swap$ -- 3
+substring$ -- 107
+swap$ -- 6
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
+type$ -- 24
 warning$ -- 0
-while$ -- 12
-width$ -- 4
-write$ -- 35
+while$ -- 18
+width$ -- 7
+write$ -- 62
